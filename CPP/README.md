@@ -1,0 +1,6 @@
+# C++ Primer (第5版)
++ [第2章 变量和基本类型]()
++ [第3章 字符串、向量和数组]()
++ [第5章 语句]()
++ [第6章 函数]()
++ [第7章 类](https://github.com/harlan0103/Note/blob/master/CPP/C%2B%2B_Primer/CH7.md)
