@@ -1,11 +1,3 @@
-
-<details>
-  <summary></summary>
-  
-  ```
-  ```
-</details>
-
 ## 标准库类型 string
 
 <details>
@@ -170,37 +162,141 @@
   ```
 </details>
 
+## 数组
+
 <details>
-  <summary></summary>
+  <summary>数组和vector的相同与不同之处？</summary>
   
   ```
+  数组和vector一样，都是存放类型相同的对象的容器
+  数组的大小确定不变，而vector的大小是确定的
+  所以如果不确定元素的确切个数，使用vector
   ```
 </details>
 
 <details>
-  <summary></summary>
+  <summary>如何理解数组的维度必须是常量表达式？</summary>
   
   ```
+  数组中元素的个数也属于数组类型的一部分，编译的时候维度应该是已知的。
+  所以维度必须是一个常量表达式。
+  常量表达式可以用数组表示，或者使用 constexpr unsigned sz = 42; int arr[sz];
+  但是不能使用 int sz = 42; 来表示数组的维度。
   ```
 </details>
 
 <details>
-  <summary></summary>
+  <summary>数组中的元素可以是引用吗？</summary>
   
   ```
+  数组中的元素必须是对象，而引用不是对象。
+  所以不存在引用的数组。
   ```
 </details>
 
 <details>
-  <summary></summary>
+  <summary>下面初始化后数组内的值是什么：int a[5] = {0, 1, 2}</summary>
   
   ```
+  初始化后数组的值是 {0, 1, 2, 0, 0};
+  如果列表初始化数组的元素小于数组的维度，那么剩下的元素被初始化成默认值。
   ```
 </details>
 
 <details>
-  <summary></summary>
+  <summary>考虑下面字符数组的维度： char a3[] = "C++"</summary>
   
   ```
+  该字符数组的维度是4。
+  当使用字符串字面值对字符数组进行初始化时，字符串字面值的结尾处还有一个空字符，该空字符也会被拷贝到字符数组中去
+  ```
+</details>
+
+<details>
+  <summary>数组可以进行拷贝和赋值吗？</summary>
+  
+  ```
+  不能将数组的内容拷贝给其他数组作为初始值。
+  也不能用数组为其他数组赋值。
+  当使用编译器扩展(compiler extension)时，支持数组的赋值。
+  ```
+</details>
+
+<details>
+  <summary>如何理解下面的定义： int *ptrs[10];</summary>
+  
+  ```
+  ptrs是含有10个整型指针的数组
+  ```
+</details>
+
+<details>
+  <summary>
+    如何理解下面的定义：int (*Parray)[10] = &arr;
+  </summary>
+  
+  ```
+  Parray是一个数组指针，指向一个存放10个整数的数组
+  ```
+</details>
+
+<details>
+  <summary>如何理解下面的定义：int (&arrRef)[10] = arr;</summary>
+  
+  ```
+  arrRef引用一个含有10个整数的数组
+  ```
+</details>
+
+<details>
+  <summary>如何理解下面的定义：int *(&array)[10] = ptrs;</summary>
+  
+  ```
+  首先(&array)表示对一个引用，引用的对象是一个含有10个元素的数组。
+  之后该引用数组的元素均为指针，所以该定义是引用了一个含有10个整型指针的数组。
+  ```
+</details>
+
+<details>
+  <summary>相比vector来说，数组有哪些缺点</summary>
+  
+  ```
+  数组固定长度，所以在定义数组的时候必须先确定数组的长度。
+  其次数组不能自由地增加或减少元素数量，如果想要增加数组长度，只能将原数组复制到一个更长地数组中
+  ```
+</details>
+
+<details>
+  <summary>如何理解指向数组的指针？</summary>
+  
+  ```
+  指向数组的指针就是指向数组首元素的指针。
+  ```
+</details>
+
+<details>
+  <summary>如何理解将数组作为一个auto变量的初始值？</summary>
+  
+  ```
+  当数组作为auto变量的初始值时，数组所表示的起始是一个指向数组首位元素的指针。
+  所以auto变量其实是一个指针，而非是一个数组。
+  ```
+</details>
+
+<details>
+  <summary>如何理解数组下标和指针的转换？ int i = ia[2]; </summary>
+  
+  ```
+  ia[2]可以看作是 *(ia + 2)，即 ia 是指向数组首位的指针，+2代表向后移动两个位置
+  之后使用解引得到 ia[2]中对应的值
+  ```
+</details>
+
+<details>
+  <summary>如何理解下面的定义： int *p = &ia[2]; int j = p[1]; </summary>
+  
+  ```
+  int *p = &ia[2]; 定义了一个指针p，指向数组中索引为2的元素。
+  int j = p[1]; p[1]等价于 *(p + 1)，因为p是指向索引为2的元素，所以p[1]就是指向索引为3的元素。
   ```
 </details>
