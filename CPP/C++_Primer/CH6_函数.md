@@ -177,69 +177,88 @@
 </details>
 
 <details>
-  <summary> </summary>
+  <summary>什么是 Constexpr 函数？ </summary>
   
   ``` 
-
+  constexpr 函数是指能用于常量表达式的函数。
+  定义 constexpr 函数的方法与其他函数类似，不过要遵循几项约定：
+  函数的返回类型以及所有形参的类型都得是字面值类型，而且函数体中必须有且只有一条 return 语句。
   ```
 </details>
 
 
 <details>
-  <summary> </summary>
+  <summary> 函数匹配的两个步骤是什么？</summary>
   
   ``` 
-
+  1. 寻找候选函数
+  2. 通过调用提供的实参，从候选函数中选出能被实参所调用的函数。新选出的函数被称为可行函数。
+  3. 如果有多个函数满足可行函数，则寻找最佳匹配，寻找形参类型与实参类型最匹配的那个可行函数。
+  当有多个函数满足可行函数时，如果有且只有一个函数满足下列条件，则匹配成功：
+    该函数每个实参的匹配都不劣于其他可行函数需要的匹配
+    至少有一个实参的匹配优于其他可行函数提供的匹配
   ```
 </details>
 
 
 <details>
-  <summary> </summary>
+  <summary> 什么是候选函数？</summary>
   
   ``` 
-
+  候选函数是函数匹配中选定本次调用对应的重载函数集。
+  候选函数具有两个特征：与被调用函数同名，其声明在调用点可见。
   ```
 </details>
 
 <details>
-  <summary> </summary>
+  <summary> 什么是可行函数？</summary>
   
   ``` 
-
+  通过调用函数的实参，从候选函数中选出能被实参所调用的函数。新选出的函数被称为可行函数。
+  可行函数具有两个特征：其形参数量与调用提供的实参数量相等，每个实参的类型与对应的形参类型相同，或者能转化成形参的类型。
   ```
 </details>
 
 <details>
-  <summary> </summary>
+  <summary> 什么是函数指针？</summary>
   
   ``` 
-
+  函数指针是指向函数的指针。函数指针的类型由函数的返回值类型和形参类型共同决定。
   ```
 </details>
 
 <details>
-  <summary> </summary>
+  <summary> 如何理解下面的声明？ bool (*pf) (const string &, const string &);</summary>
   
   ``` 
-
+  (*pf)表示指针，指针指向的是一个函数，其中该函数的参数是两个 const string 的引用，函数返回值是 bool 类型。
   ```
 </details>
 
 <details>
-  <summary> </summary>
+  <summary> 可以直接使用指向函数的指针来调用该函数吗？</summary>
   
   ``` 
-
+  可以使用指向函数的指针来调用函数，无需提前解引指针。
+  调用函数指针 == 调用函数指针解引 == 调用函数名。
   ```
 </details>
 
 <details>
-  <summary> </summary>
+  <summary> 当定义重载函数的指针时需要注意什么？</summary>
   
   ``` 
-
+  当定义重载函数的指针时需要明确到底应该选用哪个函数。
+  函数指针的形参列表和返回值类型必须要和某一个重载函数相匹配。
   ```
 </details>
 
+<details>
+  <summary> 函数可以作为函数的形参吗？</summary>
+  
+  ``` 
+  函数不可以作为函数的形参，但是指向函数的指针可以作为函数的形参。
+  当调用函数时，可以直接将函数名作为实参使用，它会自动转换成指针。
+  ```
+</details>
 
