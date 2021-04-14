@@ -592,6 +592,39 @@ abstract和interface都是通过定义一个类然后通过子类来进行实现
 
 **为什么返回值类型不同不能作为重载的条件？** 因为在函数编译时，不会去判断函数的返回类型，只有在调用的时候编译器才会去验证返回类型。如果只是返回值类型不同的话，在调用时，编译器并不能判断具体调用的是哪个函数。即从编译器角度来看，两个函数拥有相同的函数名，相同的参数列表，所以两个函数是相同的。所以在定义时IDE会报错。
 
+## 4. 什么是接口，描述接口的成员具体实现
+
+## 5. 详解值类型和引用类型的区别 [xxxx]
+
+在C#中，值类型的变量直接存储数据，而引用类型的变量持有的是数据的引用，数据存储在数据堆中。
+
+值类型(value type)：byte, short, int, long, float, double, decimal, char, bool, struct 统称为值类型。值类型变量声明后，不管是否已经赋值，编译器会为其分配内存。数据直接储存在栈上。
+
+引用类型(reference type)：string, class, interface, delegate, array 统称为引用类型。当声明一个类时，只在栈中分配一小片内存用于容纳一个地址，而此时**并没有为其分配堆上的内存空间**。当使用 new 创建一个类的实例时，分配堆上的空间，并把堆上空间的地址保存到栈上分配的小片空间中。
+
+如果值类型作为传值参数，传值参数会在栈上新开辟一个副本，原先的值类型数据不会改变。
+
+如果引用类型是传值参数，传值参数会创建一个新的引用地址，两个引用地址会指向一个对象实例的数据，实例数据会随着值的改变而进行改变。
+
+**string是特殊的引用类型，如果传入参数是string，在方法里修改，愿string数值不变**：原因是string的不变性，系统内部做了特殊处理。
+
+## 6. 装箱和拆箱的区别 [?]
+
+## 7. foreach迭代器遍历和for循环遍历的区别
+
+for语句通过初始化的index索引对整个集合进行遍历。for循环可以对所遍历的集合进行修改。
+
+forech中的迭代变量item是**只读**，无法对其进行修改，只能赋值给另外的变量再进行修改。
+
+forech实现原理：任何集合类(Array)对象都有一个GetEnumerator()方法，该方法可以返回一个实现了IEnumerator接口的对象。
+
+这个返回的IEnumerator对象既不是集合类对象，也不是集合的元素类对象，它是一个独立的类对象。
+
+这个独立的类对象可以通过MoveNext()判断是否有next，并通过访问Current来读取到集合的元素。
+
+
+
+
 ## Reference:
 
 [Unity面试题(包含答案)](https://blog.csdn.net/qq_21407523/article/details/108814300?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-1.control)
