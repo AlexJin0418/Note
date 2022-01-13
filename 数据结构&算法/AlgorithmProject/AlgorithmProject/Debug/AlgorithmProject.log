@@ -1,0 +1,6 @@
+﻿  AlgorithmProject.cpp
+C:\Users\liang\Desktop\计算机面试\算法与数据结构\AlgorithmProject\AlgorithmProject\SortTestHelper.h(22,13): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+C:\Users\liang\Desktop\计算机面试\算法与数据结构\AlgorithmProject\AlgorithmProject\UnionFind.h(54,11): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
+C:\Users\liang\Desktop\计算机面试\算法与数据结构\AlgorithmProject\AlgorithmProject\UnionFindTestHelper.h(18,19): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+C:\Users\liang\Desktop\计算机面试\算法与数据结构\AlgorithmProject\AlgorithmProject\UnionFindTestHelper.h(43,19): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  AlgorithmProject.vcxproj -> C:\Users\liang\Desktop\计算机面试\算法与数据结构\AlgorithmProject\Debug\AlgorithmProject.exe
