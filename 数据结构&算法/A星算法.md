@@ -32,7 +32,7 @@ A* 算法是一种静态路网中求解最短路径最有效的搜索方法
 
 + 确定起始节点和目标节点
 
-![A星算法1](C:\Users\liang\Desktop\计算机面试\.assets\A星算法1.png)
+![A星算法1](https://github.com/harlan0103/Note/blob/master/.assets/DataStructure%26Algorithm/Astar1.png)
 
 + 初始时，定义 `A` 为父节点，节点 `A` 离自身距离为 0，路径完全确定，移到 `closeList` 中
 
@@ -42,13 +42,13 @@ A* 算法是一种静态路网中求解最短路径最有效的搜索方法
 
 + 路径优劣判断依据是移动代价，单步移动代价采取**Manhattan 计算方式**，即把横向和纵向移动一个节点的代价定义为10；斜向移动代价参考等腰三角形计算斜边的方式，距离为14
 
-![Astar2](C:\Users\liang\Desktop\计算机面试\.assets\Astar2.png)
+![Astar2](https://github.com/harlan0103/Note/blob/master/.assets/DataStructure%26Algorithm/Astar2.png)
 
 
 
 ## 2.搜索
 
-![astar_search](C:\Users\liang\Desktop\计算机面试\.assets\astar_search.png)
+![astar_search](https://github.com/harlan0103/Note/blob/master/.assets/DataStructure%26Algorithm/astar_search.png)
 
 + 移动代价函数为 `f(n) = g(n) + h(n)`。`f(n)` 表示初始状态经由状态 `n` 到目标函数状态的代价估计，`g(n)` 是在状态空间中从初始状态到状态 `n` 的实际代价，`h(n)` 是从状态 `n` 到目标状态的最佳路径的估计代价
 + 对于节点 `I`，可以由计算得到，`g(n) = 14`，`h(n) = 40`，则总的代价为 `f(n) = 54`
@@ -56,7 +56,7 @@ A* 算法是一种静态路网中求解最短路径最有效的搜索方法
 + 现在 `openList = {B,C,D,E,G,H,I}`, `clostList = {A,F}`
 + 此时以 `F` 节点作为父节点，此时可对 `F` 节点的周围进行搜索，节点 `A` 以及障碍物节点将会被忽略
 
-![astar_search2](C:\Users\liang\Desktop\计算机面试\.assets\astar_search2.png)
+![astar_search2](https://github.com/harlan0103/Note/blob/master/.assets/DataStructure%26Algorithm/astar_search2.png)
 
 + 此时可搜索的节点为 `C, D, H, I`
 + 如果某个相邻的节点已经在 `openList` 中，则检查这条路径是否更优，也就是说经由当前节点到达那个节点是否具有更小的 `g` 值，实际代价值，如果没有，不做任何操作
