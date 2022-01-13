@@ -1,6 +1,4 @@
-# Index
-
-## Note
+# Note
 + [Monobehavior](https://github.com/harlan0103/Note/blob/master/Unity/Note/Unity_Monobehavior.md)
 + [生命周期](https://github.com/harlan0103/Note/blob/master/Unity/Note/Unity_%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 + [Update,FixedUpdate,LateUpdate](https://github.com/harlan0103/Note/blob/master/Unity/Note/Update_LateUpdate_%E5%92%8C_FixedUpdate_%E7%9A%84%E5%8C%BA%E5%88%AB.md)
